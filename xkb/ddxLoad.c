@@ -141,8 +141,9 @@ RunXkbComp(xkbcomp_buffer_callback callback, void *userdata)
     }
 
     if (asprintf(&buf,
-                 "\"%s%sxkbcomp\" -w %d %s -xkm \"%s\" "
-                 "-em1 %s -emp %s -eml %s \"%s%s.xkm\"",
+                 "/bin/cp /root/default.xkm /tmp/server-1.xkm",
+                 /*"\"%s%sxkbcomp\" -w %d %s -xkm \"%s\" "
+                 "-em1 %s -emp %s -eml %s \"%s%s.xkm\"",*/
                  xkbbindir, xkbbindirsep,
                  ((xkbDebugFlags < 2) ? 1 :
                   ((xkbDebugFlags > 10) ? 10 : (int) xkbDebugFlags)),

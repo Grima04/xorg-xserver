@@ -140,16 +140,15 @@ RunXkbComp(xkbcomp_buffer_callback callback, void *userdata)
         }
     }
 
-    if (asprintf(&buf,
-                 "/bin/cp /root/default.xkm /tmp/server-1.xkm",
+    if (asprintf(&buf, "/usr/bin/xkbcomp -w 1 -R/root -xkm default.xkm %s%s.xkm", xkm_output_dir, keymap) == -1)
                  /*"\"%s%sxkbcomp\" -w %d %s -xkm \"%s\" "
-                 "-em1 %s -emp %s -eml %s \"%s%s.xkm\"",*/
+                 "-em1 %s -emp %s -eml %s \"%s%s.xkm\"",
                  xkbbindir, xkbbindirsep,
                  ((xkbDebugFlags < 2) ? 1 :
                   ((xkbDebugFlags > 10) ? 10 : (int) xkbDebugFlags)),
                  xkbbasedirflag ? xkbbasedirflag : "", xkmfile,
                  PRE_ERROR_MSG, ERROR_PREFIX, POST_ERROR_MSG1,
-                 xkm_output_dir, keymap) == -1)
+                 xkm_output_dir, keymap) == -1)*/
         buf = NULL;
 
     free(xkbbasedirflag);
